@@ -12,6 +12,16 @@ func (v Velocity) lerp(v2 Velocity, t float64) Velocity {
 	}
 }
 
+func (v *Velocity) add(v2 Velocity) {
+	v.x += v2.x
+	v.y += v2.y
+}
+
+func (v *Velocity) mul(s float64) {
+	v.x *= s
+	v.y *= s
+}
+
 type Color struct {
 	r float64
 	g float64
@@ -30,6 +40,8 @@ type CellMap struct {
 	colorMap    [][]Color
 	velocityMap [][]Velocity
 	pressureMap [][]float64
+	cursorX	 int
+	cursorY	 int
 }
 
 func NewCellMap() *CellMap {
@@ -52,5 +64,7 @@ func NewCellMap() *CellMap {
 		colorMap:    colorMap,
 		velocityMap: velocityMap,
 		pressureMap: pressureMap,
+		cursorX:	 -1,
+		cursorY:	 -1,
 	}
 }

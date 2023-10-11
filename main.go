@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	cellWidth  = 24
-	cellHeight = 24
-	cellSize   = 20
+	cellWidth  = 320
+	cellHeight = 320
+	cellSize   = 2
 )
 
 func (g *CellMap) Draw(screen *ebiten.Image) {

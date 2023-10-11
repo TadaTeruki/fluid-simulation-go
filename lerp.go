@@ -30,3 +30,21 @@ func Sample[L lerpables[L]](m *[][]L, x, y float64) L {
 
 	return mix
 }
+
+// set value to sampled area
+func SetSampled[L any](m *[][]L, x, y float64, fn func(l1 L, weight float64) L) {
+	ix0, iy0 := smallerIndex(x, cellWidth), smallerIndex(y, cellHeight)
+	ix1, iy1 := largerIndex(x, cellWidth), largerIndex(y, cellHeight)
+	tx := x - math.Floor(x)
+	ty := y - math.Floor(y)
+
+	weight00 := (1 - tx) * (1 - ty)
+	weight01 := tx * (1 - ty)
+	weight10 := (1 - tx) * ty
+	weight11 := tx * ty
+
+	(*m)[iy0][ix0] = fn((*m)[iy0][ix0], weight00)
+	(*m)[iy0][ix1] = fn((*m)[iy0][ix0], weight01)
+	(*m)[iy1][ix0] = fn((*m)[iy0][ix0], weight10)
+	(*m)[iy1][ix1] = fn((*m)[iy0][ix0], weight11)
+}
