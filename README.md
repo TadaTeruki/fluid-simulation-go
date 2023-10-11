@@ -4,6 +4,10 @@ Go言語+Ebitengineでの流体シミュレーションの実装
 
 実装は主に https://kyndinfo.notion.site/Fluid-Simulation-f0516d9d12e245a08ae5c7545ac822dd を参考にしています。
 
+## プレビュー
+
+https://github.com/TadaTeruki/fluid-simulation-go/assets/69315285/8b555125-25ff-42cf-bf62-126cc95c5581
+
 ## 実行方法
 ```
 make run
