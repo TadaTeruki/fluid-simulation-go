@@ -1,1 +1,4 @@
 *.lock
+*.mp4
+build/*
+images/*

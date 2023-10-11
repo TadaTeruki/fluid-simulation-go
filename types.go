@@ -1,5 +1,7 @@
 package main
 
+import "image"
+
 type Velocity struct {
 	x float64
 	y float64
@@ -40,8 +42,9 @@ type CellMap struct {
 	colorMap    [][]Color
 	velocityMap [][]Velocity
 	pressureMap [][]float64
-	cursorX	 int
-	cursorY	 int
+	cursorX     int
+	cursorY     int
+	imgQueue    []*image.RGBA
 }
 
 func NewCellMap() *CellMap {
@@ -64,7 +67,8 @@ func NewCellMap() *CellMap {
 		colorMap:    colorMap,
 		velocityMap: velocityMap,
 		pressureMap: pressureMap,
-		cursorX:	 -1,
-		cursorY:	 -1,
+		cursorX:     -1,
+		cursorY:     -1,
+		imgQueue:    make([]*image.RGBA, 0),
 	}
 }
