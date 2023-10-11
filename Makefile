@@ -1,9 +1,9 @@
-.PHONY: run
+.PHONY: debug
 run:
 	go run main.go fluid.go types.go lerp.go
 
-.PHONY: build-run
-build-run:
+.PHONY: run
+run:
 	mkdir -p images
 	go build -o build/fluid main.go fluid.go types.go lerp.go
 	./build/fluid
